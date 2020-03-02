@@ -1,3 +1,28 @@
 h1 {
-    color: red;
+    
+    color:#39CCCC;
+
+  }
+  
+  #main {
+    min-height: 100%;
+    padding: 0;
+  }
+
+  .column_one {
+    width: 50%;
+    height: 100%;
+    float: left;
+  }
+
+  .column_two {
+    width: 50%;
+    height: 100px;
+    float: left;
+    background:#DDDDDD;
+  }
+
+  .image {
+    height: 300px;
+    width: 500px;
   }
