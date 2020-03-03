@@ -44,9 +44,8 @@ function slapItOnTheDOM(pose) {
     // EDIT
     // user friendly way to select an instance to edit 
     // add event listener to that . PATCH
+    const editForm = document.querySelector(`#edit-form[data-id="${pose.id}"`)
 
-    const editForm = document.querySelector(`#edit-form[data-id="${pose.id}"]`)
-    
     editForm.addEventListener('submit', (event) => {
         event.preventDefault()
         let editInput = {
@@ -61,12 +60,17 @@ function slapItOnTheDOM(pose) {
         })
         .then(resp => resp.json())
         .then()
-
+    
     })
-
-
+    
+    
+    
 }//END FUNCTION
- // show user on front end 
+// show user on front end 
+
+
+
+
 
 // CREATE
 // form needs event listener 
@@ -81,17 +85,16 @@ function createNewPose(pose) {
             name: form.name.value,
             image_url: form.image.value
         }
-
+        
         fetch("http://localhost:3000/poses", {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json' 
-                }, 
-                body: JSON.stringify(userInput)
+            }, 
+            body: JSON.stringify(userInput)
         })
         .then(resp => resp.json())
         .then(slapItOnTheDOM)
-
     })
 }
 
