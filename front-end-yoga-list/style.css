@@ -1,9 +1,14 @@
-h1 {
-    
-    color:#39CCCC;
+body {
+  background-color: aliceblue;
+}
 
-  }
-  
+h1 {
+    text-align: center;
+    color:#39CCCC;
+    font-family: 'Source Code Pro', monospace;
+    margin-top: 1em;
+}
+
   #main {
     min-height: 100%;
     padding: 0;
@@ -16,10 +21,12 @@ h1 {
   }
 
   .column_two {
+    text-align: center;
+    font-size: larger;
+    margin-top: 1em;
     width: 50%;
     height: 100px;
     float: left;
-    background:#DDDDDD;
   }
 
   .image {
