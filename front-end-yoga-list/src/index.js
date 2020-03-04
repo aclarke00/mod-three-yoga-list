@@ -12,7 +12,7 @@ function slapItOnTheDOM(pose) {
     
     poseLi.innerHTML = 
     `<span>
-            ${pose.name} <input id="button" type="button" value="X"> <br> 
+            <h3 class="pose-name">${pose.name}</h3> <input id="button" type="button" value="X"> <br> 
             <img class="image" src="${pose.image_url}"></img>
         <form data-id="${pose.id}" id="edit-form">
             <label for="name">Edit Pose</label>
@@ -44,13 +44,17 @@ function slapItOnTheDOM(pose) {
     // EDIT
     // user friendly way to select an instance to edit 
     // add event listener to that . PATCH
+    // update place on page
     const editForm = document.querySelector(`#edit-form[data-id="${pose.id}"`)
+    const editPoseName = poseLi.querySelector(".pose-name")
+    
 
     editForm.addEventListener('submit', (event) => {
-        event.preventDefault()
+        
+        event.preventDefault() 
         let editInput = {
-            name: editForm.name.value
-        }
+            name: editForm.name.value }
+        editPoseName.textContent = editForm.name.value
         fetch(`http://localhost:3000/poses/${pose.id}`, {
             method: 'PATCH',
             headers: {
@@ -62,14 +66,8 @@ function slapItOnTheDOM(pose) {
         .then()
     
     })
-    
-    
-    
 }//END FUNCTION
 // show user on front end 
-
-
-
 
 
 // CREATE
