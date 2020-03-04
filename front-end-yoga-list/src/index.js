@@ -1,9 +1,10 @@
-const posesList = document.querySelector("#poses-list")
+const posesList = document.querySelector("#poses-list") // parent is div. the ul contains a pose list element
+
 
 // Initial fetch
 fetch("http://localhost:3000/poses")
-.then(resp => resp.json())
-.then(poses => poses.forEach(slapItOnTheDOM))
+.then(resp => resp.json()) // have all poses
+.then(poses => poses.forEach(slapItOnTheDOM)) //array of pose objects
 
 // Render each item
 function slapItOnTheDOM(pose) {
@@ -19,16 +20,18 @@ function slapItOnTheDOM(pose) {
             <input type="text" name="name" placeholder="Edit Pose Name">
             <input type="submit" value="Edit">
         </form>
+
     </span>`
 
     posesList.appendChild(poseLi); // appending to DOM
-    const deleteBtn = poseLi.querySelector("#button") // searching each li for the delete button
+
 
     // DELETE
     // add button to pose titles 'x'
     // event listener for x
     // send fetch request for delete
 
+    const deleteBtn = poseLi.querySelector("#button") // searching each li for the delete button
 
     deleteBtn.addEventListener("click", () => {
         fetch(`http://localhost:3000/poses/${pose.id}`, {
@@ -36,8 +39,7 @@ function slapItOnTheDOM(pose) {
             })
         .then((response) => response.json())
         .then((data) => {
-            poseLi.remove()
-        // console.log('Success:', data);
+            poseLi.remove() // at this point we are deleting from the front end
         })
     })
 
@@ -51,10 +53,10 @@ function slapItOnTheDOM(pose) {
 
     editForm.addEventListener('submit', (event) => {
         
-        event.preventDefault() 
+        event.preventDefault() //does not refresh upon submission
         let editInput = {
             name: editForm.name.value }
-        editPoseName.textContent = editForm.name.value
+        editPoseName.textContent = editForm.name.value //strong params
         fetch(`http://localhost:3000/poses/${pose.id}`, {
             method: 'PATCH',
             headers: {
@@ -78,7 +80,6 @@ function createNewPose(pose) {
     const form = document.querySelector('#form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        // debugger
         let userInput = {
             name: form.name.value,
             image_url: form.image.value
@@ -103,4 +104,9 @@ createNewPose()
 
 
 
+
+// find the element on the DOM
+// save element to a variable 
+// call the event listener 
+// inside of the event listener i would console.log('whatever') 
 

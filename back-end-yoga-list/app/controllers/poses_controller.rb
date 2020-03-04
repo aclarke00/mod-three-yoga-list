@@ -14,7 +14,7 @@ class PosesController < ApplicationController
         @pose = Pose.create(
             name: params[:name],
             image_url: params[:image_url],
-            user_id: 1
+            user_id: 3
         )
         render json: @pose
     end
