@@ -55,7 +55,7 @@ function slapItOnTheDOM(pose) {
         
         event.preventDefault() //does not refresh upon submission
         let editInput = {
-            name: editForm.name.value }
+            name: editForm.name.value } 
         editPoseName.textContent = editForm.name.value //strong params
         fetch(`http://localhost:3000/poses/${pose.id}`, {
             method: 'PATCH',
